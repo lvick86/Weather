@@ -1,4 +1,4 @@
-# Project Title
+# The Weather Project
 
 A simple web application to monitor Weather of cities with a frontend built using **HTML, CSS, JavaScript** and a backend using **Node.js & Express**.
 
