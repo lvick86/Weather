@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+      "dbaeumer.vscode-eslint",   // ESLint for JS/TS linting
+      "esbenp.prettier-vscode",   // Prettier for code formatting
+      "task.vscode-task",
+    ]
+  }

@@ -1,0 +1,13 @@
+version: '3'
+
+tasks:
+  run:
+    deps: 
+      - install-package
+    cmds:
+      - npm run format
+      - node server.js
+
+  install-package:
+    cmds: 
+      - npm install
