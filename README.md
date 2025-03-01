@@ -31,11 +31,23 @@ cd your-repo
 ```sh
 GEO_KEY = "<REPLACE_WITH_GEOCODE_API_KEY>"
 ```
-### 3. Start the Backend Server to serve the frontend files + open API connection to fetch weather data.
+
+### 3. Install Task Runner 
+
+1. Open **Command Prompt (cmd)** or **PowerShell**.
+2. Run the following command:
+   ```sh
+   npm install -g @go-task/cli
+   ```
+3. Wait for the installation to complete.
+4. Restart **VS Code** to apply changes.
+
+Now you're ready to use Task Runner in your VS Code environment! 🚀
+
+
+### 3. Start the Backend Server to serve the frontend files + open API connection to fetch weather data. (via Task)
 ```sh
-cd backend
-npm install   # Install dependencies
-npm start     # Start the Node.js server
+task run
 ```
 By default, the backend runs on **http://localhost:3000**.
 

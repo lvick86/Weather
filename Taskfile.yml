@@ -1,0 +1,12 @@
+version: '3'
+
+tasks:
+  run:
+    cmds:
+      - task -d frontend format
+      - task -d backend run
+  
+  build:
+    cmds:
+      - task -d frontend format
+      - task -d backend install-package
