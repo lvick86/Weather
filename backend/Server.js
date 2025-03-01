@@ -3,7 +3,9 @@ const express = require('express');
 const path = require('path');
 const axios = require('axios');
 const cors = require('cors');  // Import CORS
-require('dotenv').config();
+
+// Load the env variables from .env file
+require('dotenv').config({ path: '../.env' });
 const app = express();
 const port = process.env.PORT || 3000;
 
