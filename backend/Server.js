@@ -16,6 +16,15 @@ const geoKEY = process.env.GEO_KEY;  // Ensure the correct API key is used
 // Weather API URL for Open-Meteo
 const BASE_URL = 'https://api.open-meteo.com/v1/forecast'; 
 
+const rateLimit = require('express-rate-limit');
+// Rate limit: max 100 requests per 15 minutes per IP
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per window
+  message: 'Too many requests, please try again later.',
+});
+
+app.use(limiter);
 // Enable CORS middleware
 app.use(cors());
 
@@ -69,10 +78,10 @@ app.get('/api/weather', async (req, res) => {
       return res.status(500).json({ error: 'Error fetching data from Open-Meteo' });
     }
 
+    console.log(data.current_weather)
     const weatherData = {
       temperature: data.current_weather.temperature * 9 / 5 + 32,  // Convert from Celsius to Fahrenheit
       windspeed: data.current_weather.windspeed,
-      description: data.current_weather.weathercode,
     };
 
     res.json(weatherData);  // Send the weather data as a JSON response

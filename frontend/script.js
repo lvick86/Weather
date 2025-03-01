@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectCity = document.getElementById("location-select")
     const geoCoords = document.getElementById('geo-coords')
 
-    // Function to fetch weather data from the backend API
-
     async function fetchGeo(){
         const city = document.getElementById('location-select').value;  // Get the selected city
         try {
@@ -33,8 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const response = await fetch(`/api/weather?latitude=${latitude}&longitude=${longitude}&timestamp=${timestamp}`);
         const data = await response.json();
         weatherInfo.innerHTML = `
-          <p>Location: ${data.location}</p>
-          <p>Local Time: ${data.localtime}</p>
           <p>Temperature: ${data.temperature}°F</p>
           <p>Windspeed: ${data.windspeed}%</p>
         `;
@@ -46,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
 
-  
     // Refresh the weather data when the button is clicked
     refreshButton.addEventListener("click",fetchGeo);
     selectCity.addEventListener("change", fetchGeo);
