@@ -80,12 +80,12 @@ app.get('/api/weather', async (req, res) => {
   }
 });
 
-// Serve static files from the 'public' folder (for frontend)
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static files from the 'frontend' folder.
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 // For all other requests, serve index.html
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, '../frontend', 'index.html'));
 });
 
 // Start the backend server
