@@ -1,5 +1,10 @@
 version: '3'
 tasks:
+  install-package:
+    cmds:
+      - npm install
   format:
+    deps: 
+     - install-package
     cmds:
       - npm run format
