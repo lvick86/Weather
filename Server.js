@@ -3,12 +3,13 @@ const express = require('express');
 const path = require('path');
 const axios = require('axios');
 const cors = require('cors');  // Import CORS
+require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
 
 // OpenCage Geocoding API key and URL
 const geoURL = "https://api.opencagedata.com/geocode/v1/json";
-const geoKEY = "ba15c6b1e8674c35b57f00c1cb168442";  // Ensure the correct API key is used
+const geoKEY = process.env.GEO_KEY;  // Ensure the correct API key is used
 
 // Weather API URL for Open-Meteo
 const BASE_URL = 'https://api.open-meteo.com/v1/forecast'; 
