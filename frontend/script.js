@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
       dogImage.src = data;
     } catch (error) {
       console.error("Error fetching dog image:", error);
-      dogImage.innerHTML = "<p>Error fetching dog image. Please try again later.</p>";
+      dogImage.innerHTML =
+        "<p>Error fetching dog image. Please try again later.</p>";
     }
   }
 
@@ -37,16 +38,19 @@ document.addEventListener("DOMContentLoaded", () => {
       fetchWeatherData(data.latitude, data.longitude);
     } catch (error) {
       console.error("Error fetching geo coordinates:", error);
-      geoCoords.innerHTML = "<p>Error fetching data. Please try again later.</p>";
+      geoCoords.innerHTML =
+        "<p>Error fetching data. Please try again later.</p>";
     }
   }
 
   // Fetch weather data based on geo coordinates
   async function fetchWeatherData(latitude, longitude) {
     try {
-      const response = await fetch(`/api/weather?latitude=${latitude}&longitude=${longitude}`);
+      const response = await fetch(
+        `/api/weather?latitude=${latitude}&longitude=${longitude}`,
+      );
       const data = await response.json();
-      
+
       // Extract weather data
       const temperature = data.temperature.toFixed(2);
       const windSpeed = data.windspeed.toFixed(2);
@@ -63,29 +67,32 @@ document.addEventListener("DOMContentLoaded", () => {
       setWindDirection(windDirection);
     } catch (error) {
       console.error("Error fetching weather data:", error);
-      weatherInfo.innerHTML = "<p>Error fetching weather data. Please try again later.</p>";
+      weatherInfo.innerHTML =
+        "<p>Error fetching weather data. Please try again later.</p>";
     }
   }
 
   // Function to set the wind direction as text
   function setWindDirection(degrees) {
-    let direction = '';
-    if (degrees >= 348.75 || degrees < 11.25) direction = 'North';
-    else if (degrees >= 11.25 && degrees < 33.75) direction = 'North-Northeast';
-    else if (degrees >= 33.75 && degrees < 56.25) direction = 'Northeast';
-    else if (degrees >= 56.25 && degrees < 78.75) direction = 'East-Northeast';
-    else if (degrees >= 78.75 && degrees < 101.25) direction = 'East';
-    else if (degrees >= 101.25 && degrees < 123.75) direction = 'Southeast';
-    else if (degrees >= 123.75 && degrees < 146.25) direction = 'South';
-    else if (degrees >= 146.25 && degrees < 168.75) direction = 'Southwest';
-    else if (degrees >= 168.75 && degrees < 191.25) direction = 'West';
-    else if (degrees >= 191.25 && degrees < 213.75) direction = 'Northwest';
-    else if (degrees >= 213.75 && degrees < 236.25) direction = 'West';
-    else if (degrees >= 236.25 && degrees < 258.75) direction = 'West-Southwest';
-    else if (degrees >= 258.75 && degrees < 281.25) direction = 'Southwest';
-    else if (degrees >= 281.25 && degrees < 303.75) direction = 'West-Southwest';
-    else if (degrees >= 303.75 && degrees < 326.25) direction = 'West';
-    else if (degrees >= 326.25 && degrees < 348.75) direction = 'Northwest';
+    let direction = "";
+    if (degrees >= 348.75 || degrees < 11.25) direction = "North";
+    else if (degrees >= 11.25 && degrees < 33.75) direction = "North-Northeast";
+    else if (degrees >= 33.75 && degrees < 56.25) direction = "Northeast";
+    else if (degrees >= 56.25 && degrees < 78.75) direction = "East-Northeast";
+    else if (degrees >= 78.75 && degrees < 101.25) direction = "East";
+    else if (degrees >= 101.25 && degrees < 123.75) direction = "Southeast";
+    else if (degrees >= 123.75 && degrees < 146.25) direction = "South";
+    else if (degrees >= 146.25 && degrees < 168.75) direction = "Southwest";
+    else if (degrees >= 168.75 && degrees < 191.25) direction = "West";
+    else if (degrees >= 191.25 && degrees < 213.75) direction = "Northwest";
+    else if (degrees >= 213.75 && degrees < 236.25) direction = "West";
+    else if (degrees >= 236.25 && degrees < 258.75)
+      direction = "West-Southwest";
+    else if (degrees >= 258.75 && degrees < 281.25) direction = "Southwest";
+    else if (degrees >= 281.25 && degrees < 303.75)
+      direction = "West-Southwest";
+    else if (degrees >= 303.75 && degrees < 326.25) direction = "West";
+    else if (degrees >= 326.25 && degrees < 348.75) direction = "Northwest";
     windDirectionElement.textContent = direction;
   }
 
@@ -182,11 +189,14 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchDog();
 
   // Set up auto-refresh for weather every 10 minutes (10000 * 5 * 60)
-  setInterval(() => {
-    if (selectCity.value) {
-      fetchGeo();
-    }
-  }, 10000 * 5 * 60); // 10 minutes (corrected)
+  setInterval(
+    () => {
+      if (selectCity.value) {
+        fetchGeo();
+      }
+    },
+    10000 * 5 * 60,
+  ); // 10 minutes (corrected)
 
   // Set up auto-refresh for dog image every 10 seconds (1000 * 10)
   setInterval(fetchDog, 1000 * 10); // 10 seconds

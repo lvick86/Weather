@@ -5,8 +5,19 @@ tasks:
     cmds:
       - task -d frontend format
       - task -d backend run
-  
   build:
     cmds:
       - task -d frontend format
       - task -d backend install-package
+  build-docker-image:
+    deps:
+      - build
+    cmds:
+      - docker build -t lvick86/dockerapp:latest .
+  push-docker-image:
+    deps:
+      - build-docker-image
+    cmds:
+      - docker push lvick86/dockerapp:latest
+  
+

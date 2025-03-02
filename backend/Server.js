@@ -13,8 +13,8 @@ const port = process.env.PORT || 3000;
 const geoURL = "https://api.opencagedata.com/geocode/v1/json";
 const geoKEY = process.env.GEO_KEY; // Ensure the correct API key is used
 
-const dogURL = "https://dog.ceo/api/breeds/image/random"
-const dogKEY = process.env.DOG_KEY
+const dogURL = "https://dog.ceo/api/breeds/image/random";
+const dogKEY = process.env.DOG_KEY;
 // Weather API URL for Open-Meteo
 const BASE_URL = "https://api.open-meteo.com/v1/forecast";
 
@@ -34,15 +34,13 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/api/dog", async (req, res) => {
-
   try {
     // Fetch coordinates for the city from OpenCage
-    const dogUrl = `${dogURL}?api_key=${dogKEY}`
+    const dogUrl = `${dogURL}?api_key=${dogKEY}`;
     const response = await axios.get(dogUrl);
     const data = response.data;
-    console.log(data)
+    console.log(data);
     return res.json(data.message);
-
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: "Failed to fetch Image." });
@@ -101,8 +99,8 @@ app.get("/api/weather", async (req, res) => {
     const weatherData = {
       temperature: (data.current_weather.temperature * 9) / 5 + 32, // Convert from Celsius to Fahrenheit
       windspeed: data.current_weather.windspeed,
-      winddirection:data.current_weather.winddirection,
-      weathercode:data.current_weather.weathercode
+      winddirection: data.current_weather.winddirection,
+      weathercode: data.current_weather.weathercode,
     };
 
     res.json(weatherData); // Send the weather data as a JSON response
