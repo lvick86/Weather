@@ -5,47 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather App</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+
   </head>
   <body>
     <main>
-      <h1>Weather Information</h1>
-      
-      <!-- City Selection Dropdown -->
-      <select class="blue-dropdown" id="location-select">
-        <option value="">Select a City</option>
-        <option value="Greenville, South Carolina">Greenville, South Carolina</option>
-        <option value="Auburn, Alabama">Auburn, Alabama</option>
-        <option value="Paris">Paris</option>
-        <option value="Tokyo">Tokyo</option>
-        <option value="Sydney">Sydney</option>
-      </select>
-
-      <!-- Geo Coordinates Display -->
-      <div id="geo-coords">Coordinates will appear here</div>
-
-      <!-- Weather Display: Temperature, Wind Speed, Wind Direction -->
-      <div id="temp-info">
-        <p id="temp-label">Temperature:</p>
-        <p id="temp-value"></p> <!-- This will show the temperature -->
-
-        <p id="wind-speed-label">Wind Speed:</p>
-        <p id="wind-speed"></p> <!-- This will show the wind speed -->
-
-        <p id="wind-direction-label">Wind Direction:</p>
-        <p id="wind-direction"></p> <!-- This will show the wind direction -->
-
-        <p id="weathercode"></p> <!-- This will show the wind direction -->
+      <div class="row justify-content-center align-items-center m-5">
+      <h1 class="">Weather Information</h1>
       </div>
+      
+      <div class="row justify-content-center align-items-center m-5">
+        <div class="col-6 text-center d-flex justify-content-center align-items-center">
+          <select class="form-control text-center" id="location-select" style="min-width: 200px;">
+            <option value="">Select a City</option>
+            <option value="Greenville, South Carolina">Greenville, South Carolina</option>
+            <option value="Auburn, Alabama">Auburn, Alabama</option>
+            <option value="Paris">Paris</option>
+            <option value="Tokyo">Tokyo</option>
+            <option value="Sydney">Sydney</option>
+          </select>
+          <button type="button" class="btn btn-dark ml-2" id="refresh-btn" style="min-width: 200px">Refresh Data</button>
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      <div class="container m-auto">
+        <div class="row bg-light border m-10 border-dark 1d-flex justify-content-center text-center align-items-center">
+          <div class="d-flex col-auto" id="geo-coords">
+            <span>Coordinates will appear here</span>
+          </div>
+      
+          <!-- Weather Display: Temperature, Wind Speed, Wind Direction -->
+          <div class="d-flex col-auto" id="temp-label">
+            <span>Temperature: </span>
+            <span id="temp-value"></span> <!-- This will show the temperature -->
+          </div>
+      
+          <div class="d-flex col-auto" id="wind-speed-label">
+            <span>Wind Speed:</span>
+            <span id="wind-speed"></span> <!-- This will show the wind speed -->
+          </div>
+      
+          <div class="d-flex col-auto" id="wind-direction-label">
+            <span>Wind Direction:</span>
+            <span id="wind-direction"></span> <!-- This will show the wind direction -->
+          </div>
+      
+          <div class="d-flex col-auto" id="weathercode">
+            <span></span> <!-- This will show the weather code -->
+          </div>
+        </div>
+      </div>
+      
+      
 
-      <!-- Refresh Weather Data Button -->
-      <button class="styled-button shadow-button" id="refresh-btn">Refresh Data</button>
 
       <!-- Dog Image Section -->
-      <img id="dog-image" alt="Random Dog Image" />
-      <button class="styled-button shadow-button" id="refresh-dog">Refresh Dog Image</button>
+        <div class="container text-center mt-4">
+          <img class="rounded border border-dark w-75" id="dog-image"  alt="Random Dog Image" />
+        </div>
+        
+        <div class="container text-center">
+      <button type="button" class="btn btn-dark  m-4" id="refresh-dog">Refresh Dog Image</button>
+    </div>
     </main>
-
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
