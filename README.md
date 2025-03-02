@@ -19,7 +19,7 @@ Make sure you have the following installed:
 
 ---
 
-## How to Run the Application
+## Local Setup
 ### 1. Clone the Repository
 ```sh
 git clone https://github.com/lvick86/Weather.git
@@ -56,7 +56,7 @@ By default, the backend runs on **http://localhost:3000**.
 
 ### 3. You can also run the server as a docker container like so.
 ```sh
-task docker-run
+task run-docker-container
 ```
 By default, the backend runs on **http://localhost:3000**.
 
@@ -68,4 +68,12 @@ By default, the backend runs on **http://localhost:3000**.
 | GET    | `/api/weather?latitude=<value>&longitude=<value>`    | Get the weather data based on `lat` & `long` values |
 | GET    | `/api/geocode?city=<city_name>`    | Gets the coordinates of a given city
 
+---
+
+## Development
+To contribute we will following a feature branching strategy, where a feature branch will be created from the `main` branch. After the completion of a feature raise a `Pull Request` on github to merge the feature branch into `main`. When creating a branch use this format
+
+```sh
+GITHUB_USERNAME/NAME_OF_FEATURE
+```
 ---
