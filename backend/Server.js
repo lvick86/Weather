@@ -101,6 +101,8 @@ app.get("/api/weather", async (req, res) => {
     const weatherData = {
       temperature: (data.current_weather.temperature * 9) / 5 + 32, // Convert from Celsius to Fahrenheit
       windspeed: data.current_weather.windspeed,
+      winddirection:data.current_weather.winddirection,
+      weathercode:data.current_weather.weathercode
     };
 
     res.json(weatherData); // Send the weather data as a JSON response

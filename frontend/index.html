@@ -1,4 +1,3 @@
-<!-- public/index.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,7 +10,10 @@
   <body>
     <main>
       <h1>Weather Information</h1>
-      <select class ="blue-dropdown" id="location-select"><option value=""> City selection</option>
+      
+      <!-- City Selection Dropdown -->
+      <select class="blue-dropdown" id="location-select">
+        <option value="">Select a City</option>
         <option value="Greenville, South Carolina">Greenville, South Carolina</option>
         <option value="Auburn, Alabama">Auburn, Alabama</option>
         <option value="Paris">Paris</option>
@@ -19,17 +21,31 @@
         <option value="Sydney">Sydney</option>
       </select>
 
-      <div>
+      <!-- Geo Coordinates Display -->
+      <div id="geo-coords">Coordinates will appear here</div>
 
-      <div id="geo-coords"> Coords</div>
-      <div id="weather-info">
-        <p>Select a city</p>
+      <!-- Weather Display: Temperature, Wind Speed, Wind Direction -->
+      <div id="temp-info">
+        <p id="temp-label">Temperature:</p>
+        <p id="temp-value"></p> <!-- This will show the temperature -->
+
+        <p id="wind-speed-label">Wind Speed:</p>
+        <p id="wind-speed"></p> <!-- This will show the wind speed -->
+
+        <p id="wind-direction-label">Wind Direction:</p>
+        <p id="wind-direction"></p> <!-- This will show the wind direction -->
+
+        <p id="weathercode"></p> <!-- This will show the wind direction -->
       </div>
-      <button class ="styled-button shadow-button" id="refresh-btn">Refresh Data</button>
-      </div>
-      <img id="dog-image"/>
-      <button class ="styled-button shadow-button" id="refresh-dog"> Refresh Dog Image</button>
+
+      <!-- Refresh Weather Data Button -->
+      <button class="styled-button shadow-button" id="refresh-btn">Refresh Data</button>
+
+      <!-- Dog Image Section -->
+      <img id="dog-image" alt="Random Dog Image" />
+      <button class="styled-button shadow-button" id="refresh-dog">Refresh Dog Image</button>
     </main>
+
     <script src="script.js"></script>
   </body>
 </html>
