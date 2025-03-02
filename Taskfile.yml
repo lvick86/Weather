@@ -14,6 +14,13 @@ tasks:
       - build
     cmds:
       - docker build -t lvick86/dockerapp:latest .
+  
+  run-docker-container:
+    deps:
+      - build-docker-image
+    cmds:
+      - docker run lvick86/dockerapp:latest
+      
   push-docker-image:
     deps:
       - build-docker-image

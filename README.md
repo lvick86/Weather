@@ -15,6 +15,7 @@ Weather/
 Make sure you have the following installed:
 - [Node.js](https://nodejs.org/) (v20 or later recommended)
 - [npm](https://www.npmjs.com/) (comes with Node.js)
+- [Docker](https://docs.docker.com/get-started/get-docker/)
 
 ---
 
@@ -48,6 +49,14 @@ Now you're ready to use Task Runner in your VS Code environment! 🚀
 ### 3. Start the Backend Server to serve the frontend files + open API connection to fetch weather data. (via Task)
 ```sh
 task run
+```
+By default, the backend runs on **http://localhost:3000**.
+
+---
+
+### 3. You can also run the server as a docker container like so.
+```sh
+task docker-run
 ```
 By default, the backend runs on **http://localhost:3000**.
 
