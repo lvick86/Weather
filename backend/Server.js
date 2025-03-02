@@ -13,6 +13,8 @@ const port = process.env.PORT || 3000;
 const geoURL = "https://api.opencagedata.com/geocode/v1/json";
 const geoKEY = process.env.GEO_KEY; // Ensure the correct API key is used
 
+const dogURL = "https://dog.ceo/api/breeds/image/random"
+const dogKEY = process.env.DOG_KEY
 // Weather API URL for Open-Meteo
 const BASE_URL = "https://api.open-meteo.com/v1/forecast";
 
@@ -20,7 +22,7 @@ const rateLimit = require("express-rate-limit");
 // Rate limit: max 100 requests per 15 minutes per IP
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per window
+  max: 10000, // Limit each IP to 100 requests per window
   message: "Too many requests, please try again later.",
 });
 
@@ -31,6 +33,21 @@ app.use(cors());
 // Middleware to handle JSON requests
 app.use(express.json());
 
+app.get("/api/dog", async (req, res) => {
+
+  try {
+    // Fetch coordinates for the city from OpenCage
+    const dogUrl = `${dogURL}?api_key=${dogKEY}`
+    const response = await axios.get(dogUrl);
+    const data = response.data;
+    console.log(data)
+    return res.json(data.message);
+
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: "Failed to fetch Image." });
+  }
+});
 // Route to get coordinates for a city
 app.get("/api/geocode", async (req, res) => {
   const city = req.query.city;
