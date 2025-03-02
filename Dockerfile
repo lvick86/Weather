@@ -22,8 +22,6 @@ RUN npm install
 # Set the working directory for frontend
 WORKDIR /app/frontend
 
-# Create the frontend directory (if it doesn't exist) and set it as the working directory
-RUN mkdir -p /app/frontend
 COPY frontend/package*.json ./
 
 # Copy frontend files (JS, HTML, CSS)

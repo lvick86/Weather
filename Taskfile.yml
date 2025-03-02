@@ -13,14 +13,19 @@ tasks:
     deps:
       - build
     cmds:
+      - task clean-docker-image -f
       - docker build -t lvick86/dockerapp:latest .
   
   run-docker-container:
     deps:
       - build-docker-image
     cmds:
-      - docker run lvick86/dockerapp:latest
-      
+      - docker run -p 3000:3000 lvick86/dockerapp:latest
+  
+  clean-docker-image:
+    cmds:
+      - docker rm -f $(docker ps -aq --filter ancestor=lvick86/dockerapp:latest) | true
+      - docker rmi lvick86/dockerapp:latest | true
   push-docker-image:
     deps:
       - build-docker-image
