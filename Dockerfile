@@ -34,7 +34,10 @@ COPY frontend/styles.css ./
 RUN npm install
 
 # Expose the necessary ports
-EXPOSE 3000 8081
+EXPOSE 3000
 
 # Set working directory back to backend
 WORKDIR /app/backend
+
+# Command to run the server
+CMD ["npm", "start"]
