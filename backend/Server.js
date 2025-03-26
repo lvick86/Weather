@@ -12,7 +12,6 @@ const port = process.env.PORT || 3000;
 const server = http.createServer(app); // Create an HTTP server for WebSocket
 const wss = new WebSocket.Server({ server });
 
-let lastFrame = null; // Store the latest ESP32-CAM image
 
 // Middleware
 const rateLimit = require("express-rate-limit");
