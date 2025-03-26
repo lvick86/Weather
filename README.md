@@ -95,12 +95,20 @@ GITHUB_USERNAME/NAME_OF_FEATURE
 
 docker buildx create --use
 
-docker buildx build --platform linux/arm/v7 -t lvick86/weatherapp .
+docker buildx build --platform linux/arm64 -t lvick86/weatherapp .
 
-docker buildx build --platform linux/arm/v7 --push -t lvick86/weatherapp .
+docker buildx build --platform linux/arm64 --push -t lvick86/weatherapp .
 
 ## Pulling image from Raspberry Pi
 
 docker pull lvick86/weatherapp
 
 docker run -p 3000:3000 lvick86/weatherapp
+
+# see current container
+
+docker ps
+
+# stop current container
+
+docker stop <container_name>
